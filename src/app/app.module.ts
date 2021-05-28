@@ -13,6 +13,8 @@ import { AdvertListComponent } from './visitor-content/advert-list/advert-list.c
 import { FooterComponent } from './footer/footer.component';
 import { AdvertComponent } from './advert/advert.component';
 import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpMockInterceptor } from './interceptors/http-mock.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,12 @@ import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpMockInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

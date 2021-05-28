@@ -11,6 +11,8 @@ import { HeroBannerComponent } from './visitor-content/hero-banner/hero-banner.c
 import { FilterBarComponent } from './visitor-content/filter-bar/filter-bar.component';
 import { AdvertListComponent } from './visitor-content/advert-list/advert-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { AdvertComponent } from './advert/advert.component';
+import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     HeroBannerComponent,
     FilterBarComponent,
     AdvertListComponent,
-    FooterComponent
+    FooterComponent,
+    AdvertComponent,
+    AdvertDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -45,6 +45,7 @@
     background: var(--yellow);
     box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
     transition: box-shadow 0.5s, clip-path 0.2s ease;
+    max-width: 20rem;
 
     &:hover {
       box-shadow: none;

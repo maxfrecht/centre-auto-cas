@@ -1,0 +1,69 @@
+@use '../../styles/index' as*;
+.card {
+  @include xs {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  &-top {
+    max-height: 220px;
+    overflow: hidden;
+    position: relative;
+
+    .card-img-top {
+      transition: opacity 350ms;
+
+      &.src-trans {
+        opacity: 0.5;
+      }
+    }
+  }
+  &-km {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: #7E90BC;
+    color: #f1f1f1;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #f1f1f1;
+    z-index: 10;
+    
+    &:before {
+      content: url(../../assets/image/Orion_speed.svg);
+      margin-right: 5px;
+      width: 15px;
+      height: 15px;
+      stroke: 10px;
+    }
+  }
+  &-price {
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      font-size: 14px;
+      font-weight: 300;
+      padding: 1px 5px;
+      border-radius: 3px;
+      background-color: rgb(218, 218, 218);
+    }
+  }
+  &-header {
+    background: var(--blue-gradient);
+    color: #f1f1f1;
+    h3 {
+      font-size: 20px;
+    }
+    .year {
+      background: var(--dark-gradient);
+      padding: 2.5px 5px;
+      border-radius: 3px;
+    }
+  }
+}

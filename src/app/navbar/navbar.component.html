@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand text-light" routerLink=""><h1>Centre Auto Cas</h1></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="c.toggle()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      #c="ngbCollapse"
+      [(ngbCollapse)]="isCollapsed"
+      class="collapse navbar-collapse gap-5"
+    >
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto gap-5">
+        <li class="nav-item">
+          <a routerLink="" class="nav-link text-light" aria-current="page"
+            >Accueil</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Contact</a>
+        </li>
+      </ul>
+      <button class="btn btn-yellow" type="submit">Se Connecter</button>
+    </div>
+  </div>
+</nav>

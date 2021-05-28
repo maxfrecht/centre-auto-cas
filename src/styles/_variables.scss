@@ -1,0 +1,11 @@
+:root {
+    --font-family: 'Roboto', sans-serif;
+    --title-font: 'Londrina Solid', cursive;
+    --font-big-title: 'Bebas Neue', cursive;
+    --blue-dark: #0072CF;
+    --blue-light: #0088FC;
+    --yellow: #FBD905;
+    --text: #333;
+    --blue-gradient: linear-gradient(to bottom, var(--blue-dark), var(--blue-light));
+    --dark-gradient: linear-gradient(to bottom, #000, #272727);
+}

@@ -1,0 +1,68 @@
+@use '../../../styles/index' as *;
+
+.banner {
+  background: linear-gradient(
+    to bottom,
+    var(--blue-dark),
+    rgba(0, 136, 252, 0.3)
+  );
+  .row {
+    min-height: 550px;
+    @include xl {
+      min-height: 500px;
+    }
+    @include lg {
+      min-height: 450px;
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+    font-family: var(--font-big-title);
+    font-size: 50px;
+    color: #fff;
+    @include xl {
+      font-size: 42px;
+    }
+    @include lg {
+      font-size: 36px;
+    }
+    @include md {
+      text-align: center;
+      font-size: 32px;
+    }
+    @include xs {
+      font-size: 34px;
+      text-align: center;
+    }
+    span {
+      color: transparent;
+      font-size: 56px;
+      background: var(--yellow);
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: text-fill 1s;
+      animation-delay: 1s;
+      @include xl {
+        font-size: 46px;
+      }
+      @include lg {
+        font-size: 40px;
+      }
+      @include md {
+        font-size: 36px;
+      }
+      @include xs {
+        font-size: 38px;
+      }
+    }
+  }
+  img {
+    top: 50%;
+    transform: translate(0, -70%);
+    @include md {
+      width: 60vw;
+      right: 0;
+      transform: translate(-30%, -90%);
+    }
+  }
+}

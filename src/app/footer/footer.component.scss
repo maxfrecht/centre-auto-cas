@@ -1,0 +1,59 @@
+@use '../../styles/index' as *;
+
+footer {
+  background: var(--dark-gradient);
+  color: #f1f1f1;
+
+  a {
+    color: #f1f1f1;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: #fff;
+      opacity: 1;
+    }
+  }
+  .col-md-4 {
+    border-right: 1px solid rgba($color: #f1f1f1, $alpha: 0.3);
+    padding: 0 50px;
+
+    @include md {
+      border: 0;
+      padding: 0 12px;
+      text-align: center;
+      margin-bottom: 50px;
+
+      &:last-of-type {
+        margin-bottom: 20px;
+      }
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    &:first-of-type {
+      padding: 0 50px 0 12px;
+      @include md {
+        padding: 0 12px;
+      }
+    }
+
+    &:last-of-type {
+      border-right: 0;
+      padding: 0 12px 0 50px;
+      @include md {
+        padding: 0 12px;
+      }
+    }
+  }
+}

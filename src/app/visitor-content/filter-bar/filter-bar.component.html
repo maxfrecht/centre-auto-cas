@@ -1,0 +1,129 @@
+<section class="filter">
+  <div class="filter-bar py-3" (click)="c.toggle()">
+    <div class="container">
+      <h2 class="filter-bar-content">RECHERCHER</h2>
+    </div>
+  </div>
+  <!-- FILTER CONTENT COLLAPSE -->
+  <div
+    class="filter-content collapse"
+    id="filterCollapse"
+    #c="ngbCollapse"
+    [(ngbCollapse)]="isCollapsed"
+  >
+    <div class="container">
+      <form action="#">
+        <div class="row py-5 justify-content-between">
+          <div
+            class="
+              col-12 col-lg-6
+              d-flex
+              flex-column
+              justify-content-between
+              gap-5
+              mb-5
+            "
+          >
+            <div class="form-group d-flex gap-3 align-items-center">
+              <label class="form-label m-0" for="brand">Marque</label>
+              <select
+                class="form-select"
+                name="brand"
+                aria-label="Default select example"
+              >
+                <option selected>Sélectionnez une marque</option>
+                <option value="1">Renault</option>
+                <option value="2">Citroën</option>
+                <option value="3">Fiat</option>
+              </select>
+            </div>
+            <div class="form-group d-flex gap-3 align-items-center">
+              <label class="form-label m-0" for="model">Modèle</label>
+              <select
+                class="form-select"
+                name="model"
+                aria-label="Default select example"
+              >
+                <option selected>Sélectionnez un modèle</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="form-group d-flex gap-3 align-items-center">
+              <label class="form-label m-0" for="brand">Carburant</label>
+              <select
+                class="form-select"
+                name="brand"
+                aria-label="Default select example"
+              >
+                <option selected>Sélectionnez une marque</option>
+                <option value="1">Diesel</option>
+                <option value="2">Essence</option>
+                <option value="3">Electrique</option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="
+              col-12 col-lg-6
+              d-flex
+              flex-column
+              justify-content-between
+              gap-5
+            "
+          >
+            <div class="form-group">
+              <label class="form-label" for="brand">Marque</label>
+              <select
+                class="form-select"
+                name="brand"
+                aria-label="Default select example"
+              >
+                <option selected>Sélectionnez une marque</option>
+                <option value="1">Renault</option>
+                <option value="2">Citroën</option>
+                <option value="3">Fiat</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="brand">Marque</label>
+              <select
+                class="form-select"
+                name="brand"
+                aria-label="Default select example"
+              >
+                <option selected>Sélectionnez un modèle</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="brand">Marque</label>
+              <select
+                class="form-select"
+                name="brand"
+                aria-label="Default select example"
+              >
+                <option selected>Sélectionnez une marque</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 offset-md-6 mt-5">
+            <button
+              class="btn btn-yellow"
+              data-bs-toggle="collapse"
+              data-bs-target="#filterCollapse"
+            >
+              Rechercher
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

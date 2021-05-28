@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@use './styles/index' as *;
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .container {
+    min-width: 90vw !important;
+  }
+}
+
+@keyframes text-fill {
+  0% {
+    background-position: left -200px;
+  }
+  100% {
+    background-position: left 0px;
+  }
+}
+
+.btn {
+  &__path-anim {
+    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0 100%, 0 0);
+
+    &:after {
+      content: url(./assets/image/Orion_car.svg);
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      left: 30px;
+      
+    }
+    &:hover {
+      position: relative;
+      clip-path: polygon(95% 0, 100% 50%, 95% 100%, 0 100%, 0 0);
+
+      &:after {
+        transform: translateX(1200%);
+        transition: transform 0.7s;
+      }
+    }
+  }
+  &-yellow {
+    background: var(--yellow);
+    box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 20%);
+    transition: box-shadow 0.5s, clip-path 0.2s ease;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+

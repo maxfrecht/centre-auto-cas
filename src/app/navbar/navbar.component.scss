@@ -1,0 +1,37 @@
+@use '../../styles/index' as *;
+
+nav {
+  background: var(--blue-gradient);
+  .navbar-brand h1 {
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+  }
+
+  .nav-link {
+    position: relative;
+    padding-bottom: 5px;
+
+    &:after {
+      content: ".";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      height: 1px;
+      background: #f1f1f1;
+      width: 0%;
+      color: transparent;
+      text-align: center;
+      transition: width 0.2s ease;
+    }
+
+    &:hover {
+      &:after {
+        width: 85%;
+      }
+    }
+  }
+}

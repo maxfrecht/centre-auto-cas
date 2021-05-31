@@ -15,6 +15,7 @@ import { AdvertComponent } from './advert/advert.component';
 import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpMockInterceptor } from './interceptors/http-mock.interceptor';
+import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpMockInterceptor } from './interceptors/http-mock.interceptor';
     AdvertListComponent,
     FooterComponent,
     AdvertComponent,
-    AdvertDetailComponent
+    AdvertDetailComponent,
+    ScrollTopBtnComponent
   ],
   imports: [
     BrowserModule,

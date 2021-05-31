@@ -39,4 +39,25 @@ export class ApiService {
         (e) => e
       );
   }
+
+  postVoiture(data: Object): Promise<Voiture> {
+    return this.http
+      .post(this.URL, data)
+      .toPromise()
+      .then((data: any) => {
+        let newCar = new Voiture(
+          data.id,
+          data.title,
+          data.description,
+          data.price,
+          data.kilometer,
+          data.year,
+          data.photos,
+          data.model,
+          data.brand,
+          data.carburant
+        );
+        return newCar;
+      }, e => e);
+  }
 }

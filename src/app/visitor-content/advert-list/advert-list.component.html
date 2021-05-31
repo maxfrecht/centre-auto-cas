@@ -1,7 +1,11 @@
-<section class="search-result my-5">
+<section class="search-result py-5">
   <div class="container d-flex flex-column">
     <div class="row search-results justify-content-between">
-      <app-advert class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4" *ngFor="let car of cars" [voiture]="car"></app-advert>
+      <app-advert
+        class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4"
+        *ngFor="let car of cars"
+        [voiture]="car"
+      ></app-advert>
       <button class="btn btn-yellow mx-auto mt-3">Voir plus d'annonces</button>
     </div>
   </div>

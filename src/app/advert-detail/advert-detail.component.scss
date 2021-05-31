@@ -1,6 +1,13 @@
+@use '../../styles/index' as *;
 .post {
+  background: #f1f1f1;
   img {
     border-radius: 3px;
+  }
+
+  .little {
+    overflow: hidden;
+    max-height: 8rem;
   }
 }
 
@@ -31,7 +38,7 @@
   &-more {
     background: var(--blue-gradient);
     border-radius: 3px;
-    color: #f1f1f1;
+    color: var(--text-light);
 
     ul {
       li {

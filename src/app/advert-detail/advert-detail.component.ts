@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { slideInAnimation } from '../animations/slide-in';
 import { Voiture } from '../models/voiture';
 import { ApiService } from '../services/api.service';
 
@@ -7,6 +8,10 @@ import { ApiService } from '../services/api.service';
   selector: 'app-advert-detail',
   templateUrl: './advert-detail.component.html',
   styleUrls: ['./advert-detail.component.scss'],
+  animations: [
+    slideInAnimation,
+    // animation triggers go here
+  ],
 })
 export class AdvertDetailComponent implements OnInit {
   public voiture!: Voiture;

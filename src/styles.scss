@@ -1,8 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @use './styles/index' as *;
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: var(--yellow) var(--blue-dark); /* scroll thumb and track */
+}
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--blue-dark);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--yellow);
+  opacity: 0.5;
+  border-radius: 2rem;
+}
 
 @media screen and (min-width: 600px) and (max-width: 1000px) {
   .container {
@@ -29,7 +47,6 @@
       width: 25px;
       height: 25px;
       left: 30px;
-      
     }
     &:hover {
       position: relative;
@@ -60,5 +77,3 @@ a {
 ul {
   padding: 0;
 }
-
-

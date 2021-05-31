@@ -2,31 +2,46 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-6 mb-5">
-        <img class="w-100 mb-4" [src]="voiture.photos[1]" alt="">
+        <img class="w-100 mb-4" [src]="voiture.photos[1]" alt="" />
         <div class="row">
-          <div class="col-4"><img class="img-fluid" [src]="voiture.photos[1]" alt=""></div>
-          <div class="col-4"><img class="img-fluid" [src]="voiture.photos[1]" alt=""></div>
-          <div class="col-4"><img class="img-fluid" [src]="voiture.photos[1]" alt=""></div>
+          <div class="col-4 little">
+            <img class="img-fluid" [src]="voiture.photos[0]" alt="" />
+          </div>
+          <div class="col-4 little">
+            <img class="img-fluid" [src]="voiture.photos[2]" alt="" />
+          </div>
+          <div class="col-4 little">
+            <img class="img-fluid" [src]="voiture.photos[3]" alt="" />
+          </div>
         </div>
       </div>
       <div class="post-details col-12 col-lg-6">
         <div class="post-details-header d-flex justify-content-between mb-4">
           <h2 class="m-0">{{ voiture.title }}</h2>
-          <p class="ref align-self-end m-0">ref JDG2V</p>
+          <p class="ref align-self-end m-0">{{ voiture.id }}</p>
         </div>
         <p class="post-details-content">{{ voiture.description }}</p>
         <div class="post-details-footer d-flex justify-content-between mt-5">
-          <p class="price m-0">14 600 €</p>
-          <a href="" class="btn btn-yellow btn__path-anim d-flex align-items-center justify-content-center">Je suis intéressé</a>
+          <p class="price m-0">{{ voiture.price }} €</p>
+          <a
+            href=""
+            class="
+              btn btn-yellow btn__path-anim
+              d-flex
+              align-items-center
+              justify-content-center
+            "
+            >Je suis intéressé</a
+          >
         </div>
         <div class="post-details-more p-4 mt-5">
           <h3 class="py-2">Détails</h3>
           <ul class="m-0">
-            <li>Année de mise en circulation : {{voiture.year}}</li>
-            <li>Kilomètres: {{voiture.kilometer}} km</li>
-            <li>Marque : {{voiture.brand}}</li>
-            <li>Modèle : {{voiture.model}}</li>
-            <li>Carburant : {{voiture.carburant}}</li>
+            <li>Année de mise en circulation : {{ voiture.year }}</li>
+            <li>Kilomètres: {{ voiture.kilometer }} km</li>
+            <li>Marque : {{ voiture.brand }}</li>
+            <li>Modèle : {{ voiture.model }}</li>
+            <li>Carburant : {{ voiture.carburant }}</li>
           </ul>
         </div>
       </div>

@@ -16,6 +16,8 @@ import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpMockInterceptor } from './interceptors/http-mock.interceptor';
 import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,19 +30,20 @@ import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component
     FooterComponent,
     AdvertComponent,
     AdvertDetailComponent,
-    ScrollTopBtnComponent
+    ScrollTopBtnComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpMockInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: HttpMockInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

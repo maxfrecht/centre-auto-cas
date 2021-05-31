@@ -73,8 +73,6 @@ export class HttpMockInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log(request);
-
     if (request.url == 'http://random.com/' && request.method == 'GET') {
       const body: Voiture[] = this.cars;
       return of(new HttpResponse({ status: 200, body: body }));

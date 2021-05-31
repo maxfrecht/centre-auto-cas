@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 login-form">
+      <form #login="ngForm">
+        <div class="form-group">
+          <label for="name">Nom de compte</label>
+          <input [(ngModel)]="pseudo" type="text" name="name" />
+        </div>
+        <div class="form-group">
+          <label for="psw">Mot de passe</label>
+          <input [(ngModel)]="psw" type="text" name="psw" />
+        </div>
+        <button type="submit" class="btn btn-yellow">Se connecter</button>
+        <a>Mot de passe oublié ?</a>
+      </form>
+    </div>
+  </div>
+  <img src="../../assets/image/login-bg.svg" alt="login" />
+</div>

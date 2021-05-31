@@ -1,11 +1,9 @@
 @use '../../../styles/index' as *;
 
 .banner {
-  background: linear-gradient(
-    to bottom,
-    var(--blue-dark),
-    rgba(0, 136, 252, 0.3)
-  );
+  position: relative;
+  z-index: 10000;
+  background: linear-gradient(to bottom, var(--blue-dark), #7cc2ff);
   .row {
     min-height: 550px;
     @include xl {

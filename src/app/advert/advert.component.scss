@@ -1,5 +1,8 @@
 @use '../../styles/index' as*;
+
+
 .card {
+
   @include xs {
     max-width: 350px;
     margin: 0 auto;
@@ -31,7 +34,7 @@
     align-items: center;
     border: 1px solid #f1f1f1;
     z-index: 10;
-    
+
     &:before {
       content: url(../../assets/image/Orion_speed.svg);
       margin-right: 5px;

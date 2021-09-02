@@ -18,6 +18,7 @@ import { HttpMockInterceptor } from './interceptors/http-mock.interceptor';
 import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import {JwtModule} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,12 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem("access_token"),
+        allowedDomains: ["localhost:8000"],
+      },
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpMockInterceptor, multi: true },

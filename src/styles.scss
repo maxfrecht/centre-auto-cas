@@ -3,6 +3,7 @@
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 
+@import '../node_modules/transition-style/transition.min.css';
 * {
   scrollbar-width: thin; /* "auto" or "thin" */
   scrollbar-color: var(--yellow) var(--blue-dark); /* scroll thumb and track */
@@ -18,7 +19,6 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: var(--yellow);
-  opacity: 0.5;
   border-radius: 2rem;
 }
 

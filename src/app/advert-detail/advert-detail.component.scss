@@ -1,7 +1,12 @@
 @use '../../styles/index' as *;
+
 .post {
   background: #f1f1f1;
-  img {
+
+  .main-advert-image-container {
+    max-height: 500px;
+    overflow: hidden;
+    position: relative;
     border-radius: 3px;
   }
 

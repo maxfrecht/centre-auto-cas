@@ -1,16 +1,18 @@
-<section class="post py-5">
+<section class="post py-5" *ngIf="voiture">
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-6 mb-5">
-        <img class="w-100 mb-4" [src]="voiture.photos[1]" alt="" />
-        <div class="row">
-          <div class="col-4 little">
-            <img class="img-fluid" [src]="voiture.photos[0]" alt="" />
+        <div class="main-advert-image-container">
+          <img class="main-advert-image w-100 mb-4" [src]="voiture.photos[0]" alt="" />
+        </div>
+        <div class="row mt-4">
+          <div class="col-4 little" *ngIf="voiture.photos.length > 1">
+            <img class="img-fluid" [src]="voiture.photos[1]" alt="" />
           </div>
-          <div class="col-4 little">
+          <div class="col-4 little" *ngIf="voiture.photos.length > 2">
             <img class="img-fluid" [src]="voiture.photos[2]" alt="" />
           </div>
-          <div class="col-4 little">
+          <div class="col-4 little" *ngIf="voiture.photos.length > 3">
             <img class="img-fluid" [src]="voiture.photos[3]" alt="" />
           </div>
         </div>
@@ -22,7 +24,7 @@
         </div>
         <p class="post-details-content">{{ voiture.description }}</p>
         <div class="post-details-footer d-flex justify-content-between mt-5">
-          <p class="price m-0">{{ voiture.price }} €</p>
+          <p class="price m-0">{{ voiture.price | number:'1.0-2':'fr' }} €</p>
           <a
             href=""
             class="

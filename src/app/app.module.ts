@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,12 +15,11 @@ import { FooterComponent } from './footer/footer.component';
 import { AdvertComponent } from './advert/advert.component';
 import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpMockInterceptor } from './interceptors/http-mock.interceptor';
 import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import {JwtModule} from "@auth0/angular-jwt";
-
+registerLocaleData(localeFr);
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +49,7 @@ import {JwtModule} from "@auth0/angular-jwt";
     }),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpMockInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'fr-FR'},
   ],
   bootstrap: [AppComponent],
 })

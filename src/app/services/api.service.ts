@@ -6,30 +6,35 @@ import { Voiture } from '../models/voiture';
   providedIn: 'root',
 })
 export class ApiService {
-  private URL: string = 'http://random.com/';
+  private URL: string = 'https://127.0.0.1:8000/api/';
+  private photosPath: string = '../assets/image/photos/'
   public voitures: Voiture[] = [];
   constructor(private http: HttpClient) {}
 
   getVoiture(): Promise<Voiture[]> {
     return this.http
-      .get(this.URL)
+      .get(this.URL + 'annonces')
       .toPromise()
       .then(
         (data: any) => {
           let voitures: Voiture[] = [];
-          data.forEach((voiture: any) => {
+          data['hydra:member'].forEach((voiture: any) => {
+            let photos: string[] =[];
+            //build voiture photosPath array
+            voiture.photos.forEach((photo: any) => photos.push(this.photosPath + photo.cheminAcces));
+            //Create voiture object
             voitures.push(
               new Voiture(
                 voiture.id,
-                voiture.title,
+                voiture.titre,
                 voiture.description,
-                voiture.price,
-                voiture.kilometer,
-                voiture.year,
-                voiture.photos,
-                voiture.model,
-                voiture.brand,
-                voiture.carburant
+                voiture.prix,
+                voiture.kilometrage,
+                voiture.anneeCirculation,
+                photos,
+                voiture.modele.nom,
+                voiture.modele.marque.nom,
+                voiture.typeCarburant.libelle
               )
             );
           });
@@ -38,6 +43,27 @@ export class ApiService {
         },
         (e) => e
       );
+  }
+
+  getVoitureByid(id: number): Promise<Voiture> {
+    return this.http.get(this.URL + 'annonces/' + id)
+      .toPromise()
+      .then((voiture: any) => {
+        let photos: string[] =[];
+        voiture.photos.forEach((photo: any) => photos.push(this.photosPath + photo.cheminAcces));
+        return new Voiture(
+          voiture.id,
+          voiture.titre,
+          voiture.description,
+          voiture.prix,
+          voiture.kilometrage,
+          voiture.anneeCirculation,
+          photos,
+          voiture.modele.nom,
+          voiture.modele.marque.nom,
+          voiture.typeCarburant.libelle
+        )
+      });
   }
 
   postVoiture(data: Object): Promise<Voiture> {

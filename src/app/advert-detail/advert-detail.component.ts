@@ -21,8 +21,10 @@ export class AdvertDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.voiture = this.api.voitures.find(
-      (v) => v.id === this.activatedRoute.snapshot.paramMap.get('id')
-    )!;
+    this.api.getVoitureByid(parseInt(this.activatedRoute.snapshot.paramMap.get('id')!))
+      .then(voiture => {
+        this.voiture = voiture;
+        console.log(this.voiture);
+      });
   }
 }

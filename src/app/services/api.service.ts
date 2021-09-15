@@ -11,9 +11,16 @@ export class ApiService {
   public voitures: Voiture[] = [];
   constructor(private http: HttpClient) {}
 
-  getVoiture(): Promise<Voiture[]> {
+  getVoiture(args: any = []): Promise<Voiture[]> {
+
+    let urlQuery = this.URL + 'annonces?';
+    args.forEach((arg:string | []) => {
+        if(args.brand) {
+
+        }
+    });
     return this.http
-      .get(this.URL + 'annonces')
+      .get(urlQuery)
       .toPromise()
       .then(
         (data: any) => {
@@ -85,5 +92,41 @@ export class ApiService {
         );
         return newCar;
       }, e => e);
+  }
+
+  getMarques(): Promise<any> {
+    return this.http.get(this.URL + 'marques')
+      .toPromise()
+      .then((data: any) => {
+        let marques: any[] = [];
+        data['hydra:member'].forEach((marque:any) => {
+          marques.push(marque.nom);
+        })
+        return marques;
+      })
+  }
+
+  getModelesByMarque(marque: string): Promise<any> {
+    return this.http.get(this.URL + 'modeles?marque.nom=' + marque.toLowerCase())
+      .toPromise()
+      .then((data: any) => {
+        let modeles: any[] = [];
+        data['hydra:member'].forEach((modele:any) => {
+          modeles.push(modele.nom);
+        })
+        return modeles;
+      })
+  }
+
+  getCarburants(): Promise<any> {
+    return this.http.get(this.URL + 'type_carburants')
+      .toPromise()
+      .then((data: any) => {
+        let carburants: any[] = [];
+        data['hydra:member'].forEach((carburant:any) => {
+          carburants.push(carburant.libelle);
+        })
+        return carburants;
+      })
   }
 }

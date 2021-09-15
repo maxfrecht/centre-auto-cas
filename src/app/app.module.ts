@@ -19,6 +19,8 @@ import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtModule} from "@auth0/angular-jwt";
+import { NouisliderModule } from 'ng2-nouislider';
+
 registerLocaleData(localeFr);
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ registerLocaleData(localeFr);
       },
     }),
     ReactiveFormsModule,
+    NouisliderModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR'},

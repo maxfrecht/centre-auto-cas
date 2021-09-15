@@ -4,6 +4,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 @import '../node_modules/transition-style/transition.min.css';
+
 * {
   scrollbar-width: thin; /* "auto" or "thin" */
   scrollbar-color: var(--yellow) var(--blue-dark); /* scroll thumb and track */
@@ -76,4 +77,39 @@ a {
 
 ul {
   padding: 0;
+}
+.noUi-target  {
+  background: rgba(241, 241, 241, 0.5)!important;
+  border: 0!important;
+  box-shadow: none!important;
+}
+
+.noUi-handle {
+  background: var(--yellow)!important;
+  border: none!important;
+  box-shadow: none!important;
+
+  &::before, &::after {
+    background: rgba(0, 114, 207, .4)!important;
+  }
+}
+
+.noUi-tooltip {
+  border:0!important;
+  background: transparent!important;
+  color: var(--text-light)!important;
+}
+
+.noUi-horizontal .noUi-tooltip {
+  transform: translate(-50%,200%)!important;
+}
+
+#rangePrix .noUi-tooltip::after {
+  content: '€';
+}
+#rangeKm .noUi-tooltip::after {
+  content: 'km';
+}
+#rangeKm, #rangePrix, #rangeYear {
+  padding:0 1rem;
 }

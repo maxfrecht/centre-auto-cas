@@ -14,7 +14,6 @@ export class AdvertListComponent implements OnInit {
   constructor(private api: ApiService) {
     this.api.getVoiture().then((res) => {
       this.cars = res;
-      console.log(res);
     });
 
   }

@@ -21,7 +21,10 @@
           <a class="nav-link text-light">Contact</a>
         </li>
       </ul>
-      <button class="btn btn-yellow" type="submit" routerLink="login">
+      <button class="btn btn-yellow" *ngIf="canLogout()" (click)="logout()">
+        Se Déconnecter
+      </button>
+      <button class="btn btn-yellow" *ngIf="!canLogout()" [routerLink]="['login']">
         Se Connecter
       </button>
     </div>

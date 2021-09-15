@@ -17,7 +17,7 @@ import { AdvertDetailComponent } from './advert-detail/advert-detail.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ScrollTopBtnComponent } from './scroll-top-btn/scroll-top-btn.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtModule} from "@auth0/angular-jwt";
 registerLocaleData(localeFr);
 @NgModule({
@@ -47,6 +47,7 @@ registerLocaleData(localeFr);
         allowedDomains: ["localhost:8000"],
       },
     }),
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR'},

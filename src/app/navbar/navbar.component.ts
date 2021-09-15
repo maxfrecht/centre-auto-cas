@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../services/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +10,25 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   isCollapsed=true;
-  constructor() { 
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService,
+  ) {
 
   }
 
   ngOnInit(): void {
   }
 
+  logout(): void {
+    // Remove JWT from local storage.
+    localStorage.removeItem('access_token');
+
+    // Redirect to login page.
+    this.router.navigate(['login']);
+  }
+
+  canLogout(): boolean {
+    return this.authenticationService.hasToken();
+  }
 }

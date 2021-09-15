@@ -1,17 +1,63 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6 login-form">
-      <form #login="ngForm">
-        <div class="form-group">
-          <label for="name">Nom de compte</label>
-          <input [(ngModel)]="pseudo" type="text" name="name" />
+<!--      <form #login="ngForm">-->
+<!--        <div class="form-group">-->
+<!--          <label for="name">Nom de compte</label>-->
+<!--          <input [(ngModel)]="pseudo" type="text" name="name" />-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="psw">Mot de passe</label>-->
+<!--          <input [(ngModel)]="psw" type="text" name="psw" />-->
+<!--        </div>-->
+<!--        <button type="submit" class="btn btn-yellow">Se connecter</button>-->
+<!--        <a>Mot de passe oublié ?</a>-->
+<!--      </form>-->
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div>
+          <div class="form-group">
+            <label for="email">
+            E-mail
+          </label>
+            <input id="email"
+                   type="email"
+                   placeholder="your@email.fr"
+                   formControlName="email"
+            >
+          </div>
+
+          <ul *ngIf="form.controls.email.touched && !form.controls.email.valid">
+            <li *ngIf="form.controls.email.hasError('required')">
+              Required
+            </li>
+            <li *ngIf="form.controls.email.hasError('email')">
+              Not a valid email
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label for="psw">Mot de passe</label>
-          <input [(ngModel)]="psw" type="text" name="psw" />
+
+        <div>
+          <div class="form-group">
+            <label for="password">
+            Password
+          </label>
+            <input id="password"
+                   type="password"
+                   placeholder="Password"
+                   formControlName="password"
+            >
+          </div>
+
+          <ul *ngIf="form.controls.password.touched && !form.controls.password.valid">
+            <li *ngIf="form.controls.password.hasError('required')">
+              Required
+            </li>
+          </ul>
         </div>
-        <button type="submit" class="btn btn-yellow">Se connecter</button>
-        <a>Mot de passe oublié ?</a>
+
+        <button type="submit">
+          Log in
+        </button>
       </form>
     </div>
   </div>

@@ -14,13 +14,14 @@
   >
     <div class="container">
       <form [formGroup]="form" (ngSubmit)="submit()">
-        <div class="row py-5 justify-content-between">
+        <div class="row py-5 justify-content-between flex-row">
           <div
             class="
               col-12 col-lg-6
               d-flex
               flex-column
               justify-content-between
+              gap-3
             "
           >
             <div class="form-group gap-3 align-items-center">
@@ -67,7 +68,7 @@
               d-flex
               flex-column
               justify-content-between
-              gap-5
+              gap-3
             "
           >
             <div class="form-group priceRange">

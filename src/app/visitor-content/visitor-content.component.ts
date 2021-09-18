@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-visitor-content',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visitor-content.component.scss']
 })
 export class VisitorContentComponent implements OnInit {
-
+  public filters: any = {};
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  handleUserFilters(filters: any) {
+    this.filters = filters;
+  }
 }

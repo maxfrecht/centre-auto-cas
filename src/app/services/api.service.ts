@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Voiture } from '../models/voiture';
 
@@ -11,16 +11,22 @@ export class ApiService {
   public voitures: Voiture[] = [];
   constructor(private http: HttpClient) {}
 
-  getVoiture(args: any = []): Promise<Voiture[]> {
+  getVoiture(filters: any = {}): Promise<Voiture[]> {
 
-    let urlQuery = this.URL + 'annonces?';
-    args.forEach((arg:string | []) => {
-        if(args.brand) {
+    let urlQuery = this.URL + 'annonces';
+    let params = new HttpParams();
 
-        }
-    });
+    //Setting params if
+    filters.brand ? params = params.set('modele.marque.nom', filters.brand) : '';
+    filters.modele ? params = params.set('modele.nom', filters.modele) : '';
+    filters.rangeKm ? params = params.set('kilometrage[between]', filters.rangeKm[0] + '..' + filters.rangeKm[1]) : '';
+    filters.rangePrix ? params = params.set('prix[between]', filters.rangePrix[0] + '..' + filters.rangePrix[1]) : '';
+    filters.rangeYear ? params = params.set('anneeCirculation[between]', filters.rangeYear[0] + '..' + filters.rangeYear[1]) : '';
+    filters.typeCarburant ? params = params.set('typeCarburant.libelle', filters.typeCarburant) : '';
+    console.log(filters.rangePrix);
+  console.log(params.toString());
     return this.http
-      .get(urlQuery)
+      .get(urlQuery, {params})
       .toPromise()
       .then(
         (data: any) => {

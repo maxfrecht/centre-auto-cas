@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { NouisliderComponent } from 'ng2-nouislider';
 import {ApiService} from "../../services/api.service";
@@ -41,7 +41,7 @@ export class FilterBarComponent implements OnInit {
     margin: 1000,
     tooltips: true
   }
-
+  @Output() public filters: EventEmitter<any> = new EventEmitter;
   public marques : string[] = [];
   public modeles : string[] = [];
   public typeCarburant: string[] = [];
@@ -79,6 +79,6 @@ export class FilterBarComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
+    this.filters.emit(this.form.value);
   }
 }

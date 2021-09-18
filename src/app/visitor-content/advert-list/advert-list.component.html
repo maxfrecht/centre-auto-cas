@@ -6,7 +6,9 @@
         *ngFor="let car of cars"
         [voiture]="car"
       ></app-advert>
+      <p *ngIf="cars.length === 0">Aucune voiture trouvée pour votre recherche</p>
     </div>
+    <ngx-spinner type="cog" bdColor = "rgba(35,116,223,1)"></ngx-spinner>
     <button class="btn btn-yellow mx-auto mt-3">Voir plus d'annonces</button>
   </div>
 </section>

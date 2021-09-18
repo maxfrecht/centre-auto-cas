@@ -33,7 +33,7 @@
                 [formControl]="form.controls.brand"
                 (change)="getModelsBySelectedBrand($event.target.value)"
               >
-                <option selected>Sélectionnez une marque</option>
+                <option selected value="undefined">Sélectionnez une marque</option>
                 <option *ngFor="let marque of marques">{{marque}}</option>
               </select>
             </div>

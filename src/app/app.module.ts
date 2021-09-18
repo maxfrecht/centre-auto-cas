@@ -1,4 +1,4 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtModule} from "@auth0/angular-jwt";
 import { NouisliderModule } from 'ng2-nouislider';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 registerLocaleData(localeFr);
 @NgModule({
@@ -50,8 +51,10 @@ registerLocaleData(localeFr);
       },
     }),
     ReactiveFormsModule,
-    NouisliderModule
+    NouisliderModule,
+    NgxSpinnerModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR'},
   ],

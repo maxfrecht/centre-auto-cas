@@ -23,6 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "^11.0.0-beta.1",
     "bootstrap": "^5.0.0",
     "ng2-nouislider": "^1.8.3",
+    "ngx-spinner": "^12.0.0",
     "nouislider": "^15.4.0",
     "rxjs": "~6.6.0",
     "transition-style": "^0.1.1",

@@ -1,11 +1,14 @@
-<section class="post py-5" *ngIf="voiture">
+<section class="post py-5" >
   <div class="container">
     <div class="row">
+      <ngx-spinner type="cog" bdColor = "rgba(35,116,223,1)"></ngx-spinner>
       <div class="col-12 col-lg-6 mb-5">
-        <div class="main-advert-image-container">
+
+
+        <div class="main-advert-image-container" *ngIf="voiture">
           <img class="main-advert-image w-100 mb-4" [src]="voiture.photos[0]" alt="" />
         </div>
-        <div class="row mt-4">
+        <div class="row mt-4" *ngIf="voiture">
           <div class="col-4 little" *ngIf="voiture.photos.length > 1">
             <img class="img-fluid" [src]="voiture.photos[1]" alt="" />
           </div>
@@ -17,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="post-details col-12 col-lg-6">
+      <div class="post-details col-12 col-lg-6" *ngIf="voiture">
         <div class="post-details-header d-flex justify-content-between mb-4">
           <h2 class="m-0">{{ voiture.title }}</h2>
           <p class="ref align-self-end m-0">{{ voiture.id }}</p>

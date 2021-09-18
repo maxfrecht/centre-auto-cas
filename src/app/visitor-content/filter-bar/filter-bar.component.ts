@@ -80,5 +80,6 @@ export class FilterBarComponent implements OnInit {
 
   submit() {
     this.filters.emit(this.form.value);
+    this.isCollapsed=true;
   }
 }

@@ -6,7 +6,7 @@ import { Voiture } from '../models/voiture';
   providedIn: 'root',
 })
 export class ApiService {
-  private URL: string = 'https://127.0.0.1:8000/api/';
+  private URL: string = 'http://78.241.28.199:8090/public/index.php/api/';
   private photosPath: string = '../assets/image/photos/'
   public voitures: Voiture[] = [];
   constructor(private http: HttpClient) {}

@@ -17,7 +17,7 @@ export class ApiService {
 
     let params = new HttpParams();
     let headers = new HttpHeaders({
-      'Access-Control-Allow-Origin':'*'
+      'Access-Control-Allow-Origin':'*' // Add this to nelmio_cors config to backend config
     });
     //Setting params if
     filters.brand ? params = params.set('modele.marque.nom', filters.brand) : '';

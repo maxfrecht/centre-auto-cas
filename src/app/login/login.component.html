@@ -1,18 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6 login-form">
-<!--      <form #login="ngForm">-->
-<!--        <div class="form-group">-->
-<!--          <label for="name">Nom de compte</label>-->
-<!--          <input [(ngModel)]="pseudo" type="text" name="name" />-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--          <label for="psw">Mot de passe</label>-->
-<!--          <input [(ngModel)]="psw" type="text" name="psw" />-->
-<!--        </div>-->
-<!--        <button type="submit" class="btn btn-yellow">Se connecter</button>-->
-<!--        <a>Mot de passe oublié ?</a>-->
-<!--      </form>-->
       <form [formGroup]="form" (ngSubmit)="submit()">
         <div>
           <div class="form-group">
@@ -21,17 +9,17 @@
           </label>
             <input id="email"
                    type="email"
-                   placeholder="your@email.fr"
+                   placeholder="monemail@gmail.fr"
                    formControlName="email"
             >
           </div>
 
           <ul *ngIf="form.controls.email.touched && !form.controls.email.valid">
             <li *ngIf="form.controls.email.hasError('required')">
-              Required
+              Ce champs est requis
             </li>
             <li *ngIf="form.controls.email.hasError('email')">
-              Not a valid email
+              L'email n'est pas valide
             </li>
           </ul>
         </div>
@@ -39,24 +27,24 @@
         <div>
           <div class="form-group">
             <label for="password">
-            Password
+            Mot de passe
           </label>
             <input id="password"
                    type="password"
-                   placeholder="Password"
+                   placeholder="Mot de passe"
                    formControlName="password"
             >
           </div>
 
           <ul *ngIf="form.controls.password.touched && !form.controls.password.valid">
             <li *ngIf="form.controls.password.hasError('required')">
-              Required
+              Ce champs est requis
             </li>
           </ul>
         </div>
 
-        <button type="submit">
-          Log in
+        <button class="btn btn-yellow" type="submit">
+          Connexion
         </button>
       </form>
     </div>

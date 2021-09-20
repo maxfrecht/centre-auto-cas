@@ -1,4 +1,4 @@
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Voiture } from '../models/voiture';
 
@@ -14,8 +14,11 @@ export class ApiService {
   getVoiture(filters: any = {}): Promise<Voiture[]> {
 
     let urlQuery = this.URL + 'annonces';
-    let params = new HttpParams();
 
+    let params = new HttpParams();
+    let headers = new HttpHeaders({
+      'Access-Control-Allow-Origin':'*'
+    });
     //Setting params if
     filters.brand ? params = params.set('modele.marque.nom', filters.brand) : '';
     !filters.brand ? params = params.delete("modele.marque.nom") : '';
@@ -38,8 +41,14 @@ export class ApiService {
 
     console.log(filters.rangePrix);
   console.log(params.toString());
+
+    let httpOptions = {
+      headers: headers,
+      params: params
+    }
+
     return this.http
-      .get(urlQuery, {params})
+      .get(urlQuery, httpOptions)
       .toPromise()
       .then(
         (data: any) => {

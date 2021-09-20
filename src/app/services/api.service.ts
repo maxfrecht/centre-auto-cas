@@ -16,9 +16,11 @@ export class ApiService {
     let urlQuery = this.URL + 'annonces';
 
     let params = new HttpParams();
+    // Add this to nelmio_cors config to backend config
     let headers = new HttpHeaders({
-      'Access-Control-Allow-Origin':'*' // Add this to nelmio_cors config to backend config
-    });
+      'Access-Control-Allow-Origin':'*',
+      'Content-Security-Policy': 'upgrade-insecure-requests'
+  });
     //Setting params if
     filters.brand ? params = params.set('modele.marque.nom', filters.brand) : '';
     !filters.brand ? params = params.delete("modele.marque.nom") : '';

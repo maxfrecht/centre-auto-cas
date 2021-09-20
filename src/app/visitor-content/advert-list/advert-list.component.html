@@ -1,5 +1,13 @@
 <section class="search-result py-5">
   <div class="container d-flex flex-column">
+    <div class="show-filters" *ngIf="showFilters">
+      <span *ngIf="filters.brand">{{filters.brand}}</span>
+      <span *ngIf="filters.modele">{{filters.modele}}</span>
+      <span *ngIf="filters.typeCarburant">{{filters.typeCarburant}}</span>
+      <span *ngIf="filters.rangeKm && (filters.rangeKm[0] != 10000 || filters.rangeKm[1] != 500000)">de {{filters.rangeKm[0] }}km à {{filters.rangeKm[1]}}km </span>
+      <span *ngIf="filters.rangePrix && (filters.rangePrix[0] != 1000 || filters.rangePrix[1] != 200000)">de {{filters.rangePrix[0] }}€ à {{filters.rangePrix[1]}}€ </span>
+      <span *ngIf="filters.rangeYear && (filters.rangeYear[0] != 1990 || filters.rangeYear[1] != 2021)">de {{filters.rangeYear[0] }} à {{filters.rangeYear[1]}} </span>
+    </div>
     <div class="row search-results justify-content-between">
       <app-advert
         class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4"
@@ -8,7 +16,7 @@
       ></app-advert>
       <p *ngIf="cars.length === 0">Aucune voiture trouvée pour votre recherche</p>
     </div>
-    <ngx-spinner type="cog" bdColor = "rgba(35,116,223,1)"></ngx-spinner>
+    <ngx-spinner type="cog" bdColor = "rgba(35,116,223,1)"><p style="color:var(--text-light)">Chargement des annonces...</p></ngx-spinner>
     <button class="btn btn-yellow mx-auto mt-3">Voir plus d'annonces</button>
   </div>
 </section>

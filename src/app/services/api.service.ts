@@ -18,11 +18,24 @@ export class ApiService {
 
     //Setting params if
     filters.brand ? params = params.set('modele.marque.nom', filters.brand) : '';
+    !filters.brand ? params = params.delete("modele.marque.nom") : '';
     filters.modele ? params = params.set('modele.nom', filters.modele) : '';
+    !filters.modele ? params = params.delete("modele.nom") : '';
     filters.rangeKm ? params = params.set('kilometrage[between]', filters.rangeKm[0] + '..' + filters.rangeKm[1]) : '';
+    if(filters.rangeKm && (filters.rangeKm[0] < 10001 && filters.rangeKm[1] > 499999)) {
+        params = params.delete('kilometrage[between]');
+    }
     filters.rangePrix ? params = params.set('prix[between]', filters.rangePrix[0] + '..' + filters.rangePrix[1]) : '';
+    if(filters.rangePrix && (filters.rangePrix[0] < 1001 && filters.rangePrix[1] > 199999)) {
+      params = params.delete('prix[between]');
+    }
     filters.rangeYear ? params = params.set('anneeCirculation[between]', filters.rangeYear[0] + '..' + filters.rangeYear[1]) : '';
+    if(filters.rangeYear && (filters.rangeYear[0] < 1991 && filters.rangeYear[1] > 2020)) {
+      params = params.delete('anneeCirculation[between]');
+    }
     filters.typeCarburant ? params = params.set('typeCarburant.libelle', filters.typeCarburant) : '';
+    !filters.typeCarburant ? params = params.delete("typeCarburant.libelle") : '';
+
     console.log(filters.rangePrix);
   console.log(params.toString());
     return this.http

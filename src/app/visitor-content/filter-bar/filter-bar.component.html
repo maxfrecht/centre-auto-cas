@@ -33,7 +33,7 @@
                 [formControl]="form.controls.brand"
                 (change)="getModelsBySelectedBrand($event.target.value)"
               >
-                <option selected value="undefined">Sélectionnez une marque</option>
+                <option selected value="">Sélectionnez une marque</option>
                 <option *ngFor="let marque of marques">{{marque}}</option>
               </select>
             </div>
@@ -45,7 +45,7 @@
                 name="model"
                 [formControl]="form.controls.modele"
               >
-                <option selected>Sélectionnez un modèle</option>
+                <option selected value="">Sélectionnez un modèle</option>
                 <option *ngFor="let modele of modeles">{{modele}}</option>
               </select>
             </div>
@@ -57,7 +57,7 @@
                 name="carburant"
                 [formControl]="form.controls.typeCarburant"
               >
-                <option selected>Sélectionnez un type de carburant</option>
+                <option selected value="">Sélectionnez un type de carburant</option>
                 <option *ngFor="let carburant of typeCarburant">{{carburant}}</option>
               </select>
             </div>

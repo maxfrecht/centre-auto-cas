@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     // If the form is valid (all inputs valids).
     if (this.form.valid) {
       // Forge HTTP request to send to the API to retrieve JWT.
-      this.httpClient.post<Token>('http://78.241.28.199:8090/public/index.php/authentication_token', this.form.value as Credentials).subscribe(
+      this.httpClient.post<Token>('http://78.241.28.199:8090/authentication_token', this.form.value as Credentials).subscribe(
         (data) => {
           // When success. Save the JWT in local storage.
           this.authenticationService.saveToken(data.token);

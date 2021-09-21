@@ -6,7 +6,7 @@ import { Voiture } from '../models/voiture';
   providedIn: 'root',
 })
 export class ApiService {
-  private URL: string = 'http://78.241.28.199:8090/public/index.php/api/';
+  private URL: string = 'http://78.241.28.199:8090/api/';
   private photosPath: string = '../assets/image/photos/'
   public voitures: Voiture[] = [];
   constructor(private http: HttpClient) {}
@@ -17,10 +17,7 @@ export class ApiService {
 
     let params = new HttpParams();
     // Add this to nelmio_cors config to backend config
-    let headers = new HttpHeaders({
-      'Access-Control-Allow-Origin':'*',
-      'Content-Security-Policy': 'upgrade-insecure-requests'
-  });
+
     //Setting params if
     filters.brand ? params = params.set('modele.marque.nom', filters.brand) : '';
     !filters.brand ? params = params.delete("modele.marque.nom") : '';
@@ -45,7 +42,6 @@ export class ApiService {
   console.log(params.toString());
 
     let httpOptions = {
-      headers: headers,
       params: params
     }
 
